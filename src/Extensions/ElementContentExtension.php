@@ -7,6 +7,7 @@ use SilverStripe\AssetAdmin\Forms\UploadField;
 use SilverStripe\Assets\File;
 use SilverStripe\Assets\Image;
 use SilverStripe\CMS\Model\SiteTree;
+use SilverStripe\Control\Director;
 use SilverStripe\Core\Config\Config;
 use SilverStripe\Core\Manifest\ModuleLoader;
 use SilverStripe\Dev\Debug;
@@ -187,14 +188,21 @@ class ElementContentExtension extends DataExtension{
     private function getLayoutOptions(): array
     {
         $options = [];
-        $configVars = Config::inst()->get('MoritzSauer\ContentElement')['Layouts'];
+        $configVars = Config::inst()->get('MoritzSauer\LinkedPagesElement')['Layouts'];
         foreach ($configVars as $layoutVar){
             $layoutID = $layoutVar['id'];
             if($this->getLayoutVariableFromConfig($layoutID)){
-                $img = ModuleLoader::getModule('moritz-sauer-13/contentelement')->getResource($layoutVar['imgPath']);
+                if(stristr($layoutVar['imgPath'], 'themes/') !== false){
+                    $img = $layoutVar['imgPath'];
+                } else {
+                    $img = ModuleLoader::getModule('moritz-sauer-13/linkedpageselement')->getResource($layoutVar['imgPath']);
+                    if($img){
+                        $img->getURL();
+                    }
+                }
                 $options[$layoutID] = [
                     'title' => $layoutVar['title'],
-                    'image' => ($img) ? $img->getURL() : '',
+                    'image' => ($img) ? Director::absoluteBaseURL() . 'resources/' . $img : '',
                 ];
             }
         }
