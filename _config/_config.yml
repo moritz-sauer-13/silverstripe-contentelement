@@ -1,0 +1,173 @@
+---
+Name: contentelement
+---
+MoritzSauer\ContentElement:
+    #Defines all Layouts
+    Layouts:
+        TextOnly:
+            #id of layout needs to be the same as the key of this layout
+            #id defines also the name for the special template
+            id: 'TextOnly'
+            # enable / disable this layout
+            enabled: true
+            # title of this layout. Will be used to identify this in the cms
+            title: 'Nur Text'
+            # path to Image which will be used in the cms
+            imgPath: 'client/images/TextOnly.jpg'
+            # defines, if this layout has media like images or videos
+            # if this is false, the "Medien"-Tab won't be shown in cms
+            hasMedia: false
+            # define all fields available in the cms for this layout
+            # in some cases you can set here globally settings
+            # example: disable video-autoplay project wide (for this layout) by setting it here to false
+            FieldsVisible:
+                TextCenter: true
+                SubTitle: true
+                SubTitleBelowTitle: true
+                Content: true
+                SecondContent: false
+                ButtonCaption: true
+                ExternalLink: true
+                LinkedPageID: true
+                ImageID: false
+                ImageFormat: false
+                VideoAutoPlay: false
+                VideoLoop: false
+                VideoMuted: false
+                VideoControls: false
+                PreviewImageID: false
+                VideoMP4ID: false
+                VideoOGVID: false
+                VideoWEBMID: false
+                GalleryImages: false
+                GalleryArrows: false
+                BadgePosition: false
+                BadgeID: false
+                ShowImageCaption: false
+        TwoColumns:
+            id: 'TwoColumns'
+            enabled: true
+            title: 'Zweispaltig'
+            imgPath: 'client/images/TwoColumns.jpg'
+            hasMedia: false
+            FieldsVisible:
+                TextCenter: false
+                SubTitle: true
+                SubTitleBelowTitle: true
+                Content: true
+                SecondContent: true
+                ButtonCaption: true
+                ExternalLink: true
+                LinkedPageID: true
+                ImageID: false
+                ImageFormat: false
+                VideoAutoPlay: false
+                VideoLoop: false
+                VideoMuted: false
+                VideoControls: false
+                PreviewImageID: false
+                VideoMP4ID: false
+                VideoOGVID: false
+                VideoWEBMID: false
+                GalleryImages: false
+                GalleryArrows: false
+                BadgePosition: false
+                BadgeID: false
+                ShowImageCaption: false
+        TextMediaRight:
+            id: 'TextMediaRight'
+            enabled: true
+            title: 'Text links, Medien rechts'
+            imgPath: 'client/images/MediaRight.jpg'
+            hasMedia: true
+            FieldsVisible:
+                TextCenter: true
+                SubTitle: true
+                SubTitleBelowTitle: true
+                Content: true
+                SecondContent: false
+                ButtonCaption: true
+                ExternalLink: true
+                LinkedPageID: true
+                ImageID: true
+                ImageFormat: true
+                VideoAutoPlay: true
+                VideoLoop: true
+                VideoMuted: true
+                VideoControls: true
+                PreviewImageID: true
+                VideoMP4ID: true
+                VideoOGVID: true
+                VideoWEBMID: true
+                GalleryImages: true
+                GalleryArrows: true
+                BadgePosition: true
+                BadgeID: true
+                ShowImageCaption: true
+        TextMediaLeft:
+            id: 'TextMediaLeft'
+            enabled: true
+            title: 'Text rechts, Medien links'
+            imgPath: 'client/images/MediaLeft.jpg'
+            hasMedia: true
+            FieldsVisible:
+                TextCenter: true
+                SubTitle: true
+                SubTitleBelowTitle: true
+                Content: true
+                SecondContent: false
+                ButtonCaption: true
+                ExternalLink: true
+                LinkedPageID: true
+                ImageID: true
+                ImageFormat: true
+                VideoAutoPlay: true
+                VideoLoop: true
+                VideoMuted: true
+                VideoControls: true
+                PreviewImageID: true
+                VideoMP4ID: true
+                VideoOGVID: true
+                VideoWEBMID: true
+                GalleryImages: true
+                GalleryArrows: true
+                BadgePosition: true
+                BadgeID: true
+                ShowImageCaption: true
+        MediaFullscreen:
+            id: 'MediaFullscreen'
+            enabled: true
+            title: 'Medien Vollbreite'
+            imgPath: 'client/images/MediaFullscreen.jpg'
+            hasMedia: true
+            FieldsVisible:
+                TextCenter: true
+                SubTitle: true
+                SubTitleBelowTitle: true
+                Content: true
+                SecondContent: false
+                ButtonCaption: true
+                ExternalLink: true
+                LinkedPageID: true
+                ImageID: true
+                ImageFormat: true
+                VideoAutoPlay: true
+                VideoLoop: true
+                VideoMuted: true
+                VideoControls: true
+                PreviewImageID: true
+                VideoMP4ID: true
+                VideoOGVID: true
+                VideoWEBMID: true
+                GalleryImages: true
+                GalleryArrows: true
+                BadgePosition: true
+                BadgeID: true
+                ShowImageCaption: false
+    # settings for some fields
+    FieldSettings:
+        # height and width of the layout-select images in cms
+        ImageHeight: 100
+        ImageWidth: 195
+        # description to the layout-select in the cms
+        FieldDescription: 'Nach der Auswahl zuerst speichern.'

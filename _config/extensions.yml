@@ -1,0 +1,7 @@
+---
+Name: contentelement_extensions
+---
+
+DNADesign\Elemental\Models\ElementContent:
+  extensions:
+    - MoritzSauer\ContentElement\ElementContentExtension

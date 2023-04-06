@@ -1,0 +1,33 @@
+
+.swiper-container {
+  position: relative;
+
+  .swiper__controls {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    transform: translateY(-50%);
+    z-index: 100;
+
+    .prev,
+    .next {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 35px;
+    }
+
+    .prev {
+      left: 2rem;
+    }
+
+    .next {
+      right: 2rem;
+    }
+
+    .swiper-button-disabled {
+      opacity: 0.5;
+    }
+  }
+}

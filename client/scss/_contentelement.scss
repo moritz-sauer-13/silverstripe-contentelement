@@ -1,0 +1,25 @@
+
+.media__badge {
+  position: absolute;
+  z-index: 20;
+
+  &.TopLeft {
+    top: -2rem;
+    left: -2rem;
+  }
+
+  &.TopRight {
+    top: -2rem;
+    right: -2rem;
+  }
+
+  &.BottomLeft {
+    bottom: -2rem;
+    left: -2rem;
+  }
+
+  &.BottomRight {
+    bottom: -2rem;
+    right: -2rem;
+  }
+}
