@@ -9,8 +9,6 @@
   ],
   "require":{
     "silverstripe/recipe-cms": "^4",
-    "xddesigners/silverstripe-events": "^0.1.7",
-    "tractorcow/silverstripe-colorpicker": "^4.1",
     "axllent/silverstripe-scss": "^1.8",
     "dnadesign/silverstripe-elemental": "^4",
     "unclecheese/silverstripe-image-optionset": "^2.0",
