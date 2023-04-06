@@ -30,10 +30,10 @@ class ElementContentExtension extends DataExtension{
         'SecondContent' => 'HTMLText',
         'ButtonCaption' => 'Text',
         'ExternalLink' => 'Text',
-        'VideoAutoPlay' => 'Boolean(1)',
-        'VideoLoop' => 'Boolean(1)',
-        'VideoMuted' => 'Boolean(1)',
-        'VideoControls' => 'Boolean(1)',
+        'AutoPlay' => 'Boolean(1)',
+        'Loop' => 'Boolean(1)',
+        'Muted' => 'Boolean(1)',
+        'Controls' => 'Boolean(1)',
         'GalleryArrows' => 'Boolean(1)',
         'SubTitleBelowTitle' => 'Boolean(1)',
         'TextCenter' => 'Boolean(1)',
@@ -143,13 +143,13 @@ class ElementContentExtension extends DataExtension{
                     ->setDescription('Die Videos werden alternativ zu Bild und Galerie ausgegeben.'),
                 UploadField::create('VideoOGV', 'Video (.ogv)'),
                 UploadField::create('VideoWEBM', 'Video (.webm)'),
-                CheckboxField::create('VideoAutoPlay', 'Video - Autoplay?')
+                CheckboxField::create('AutoPlay', 'Video - Autoplay?')
                     ->setDescription('Soll das Video automatisch abgespielt werden?'),
-                CheckboxField::create('VideoLoop', 'Video - Endlosschleife?')
+                CheckboxField::create('Loop', 'Video - Endlosschleife?')
                     ->setDescription('Soll das Video automatisch in einer Endlosschleife wiedergegeben werden?'),
-                CheckboxField::create('VideoMuted', 'Video - Stumm?')
+                CheckboxField::create('Muted', 'Video - Stumm?')
                     ->setDescription('Soll das Video ohne Ton wiedergegeben werden?'),
-                CheckboxField::create('VideoControls', 'Video - Steuerung?')
+                CheckboxField::create('Controls', 'Video - Steuerung?')
                     ->setDescription('Sollen die Steuerungselemente des Videos angezeigt werden?')
             ]);
         }
@@ -288,16 +288,16 @@ class ElementContentExtension extends DataExtension{
     public function videoAttributes(): string
     {
         $attributes = '';
-        if($this->checkVideoAttribute('VideoAutoPlay')){
+        if($this->checkVideoAttribute('AutoPlay')){
             $attributes .= ' autoplay ';
         }
-        if($this->checkVideoAttribute('VideoLoop')){
+        if($this->checkVideoAttribute('Loop')){
             $attributes .= ' loop ';
         }
-        if($this->checkVideoAttribute('VideoMuted')){
+        if($this->checkVideoAttribute('Muted')){
             $attributes .= ' muted ';
         }
-        if($this->checkVideoAttribute('VideoControls')){
+        if($this->checkVideoAttribute('Controls')){
             $attributes .= ' controls ';
         }
         return $attributes;
