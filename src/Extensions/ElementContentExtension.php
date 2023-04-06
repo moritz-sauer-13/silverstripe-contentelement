@@ -188,14 +188,14 @@ class ElementContentExtension extends DataExtension{
     private function getLayoutOptions(): array
     {
         $options = [];
-        $configVars = Config::inst()->get('MoritzSauer\LinkedPagesElement')['Layouts'];
+        $configVars = Config::inst()->get('MoritzSauer\ContentElement')['Layouts'];
         foreach ($configVars as $layoutVar){
             $layoutID = $layoutVar['id'];
             if($this->getLayoutVariableFromConfig($layoutID)){
                 if(stristr($layoutVar['imgPath'], 'themes/') !== false){
                     $img = $layoutVar['imgPath'];
                 } else {
-                    $img = ModuleLoader::getModule('moritz-sauer-13/linkedpageselement')->getResource($layoutVar['imgPath']);
+                    $img = ModuleLoader::getModule('moritz-sauer-13/contentelement')->getResource($layoutVar['imgPath']);
                     if($img){
                         $img->getURL();
                     }
