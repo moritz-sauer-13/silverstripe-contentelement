@@ -31,10 +31,10 @@ MoritzSauer\ContentElement:
                 LinkedPageID: true
                 ImageID: false
                 ImageFormat: false
-                VideoAutoPlay: false
-                VideoLoop: false
-                VideoMuted: false
-                VideoControls: false
+                AutoPlay: false
+                Loop: false
+                Muted: false
+                Controls: false
                 PreviewImageID: false
                 VideoMP4ID: false
                 VideoOGVID: false
@@ -61,10 +61,10 @@ MoritzSauer\ContentElement:
                 LinkedPageID: true
                 ImageID: false
                 ImageFormat: false
-                VideoAutoPlay: false
-                VideoLoop: false
-                VideoMuted: false
-                VideoControls: false
+                AutoPlay: false
+                Loop: false
+                Muted: false
+                Controls: false
                 PreviewImageID: false
                 VideoMP4ID: false
                 VideoOGVID: false
@@ -91,10 +91,10 @@ MoritzSauer\ContentElement:
                 LinkedPageID: true
                 ImageID: true
                 ImageFormat: true
-                VideoAutoPlay: true
-                VideoLoop: true
-                VideoMuted: true
-                VideoControls: true
+                AutoPlay: true
+                Loop: true
+                Muted: true
+                Controls: true
                 PreviewImageID: true
                 VideoMP4ID: true
                 VideoOGVID: true
@@ -121,10 +121,10 @@ MoritzSauer\ContentElement:
                 LinkedPageID: true
                 ImageID: true
                 ImageFormat: true
-                VideoAutoPlay: true
-                VideoLoop: true
-                VideoMuted: true
-                VideoControls: true
+                AutoPlay: true
+                Loop: true
+                Muted: true
+                Controls: true
                 PreviewImageID: true
                 VideoMP4ID: true
                 VideoOGVID: true
@@ -151,10 +151,10 @@ MoritzSauer\ContentElement:
                 LinkedPageID: true
                 ImageID: true
                 ImageFormat: true
-                VideoAutoPlay: true
-                VideoLoop: true
-                VideoMuted: true
-                VideoControls: true
+                AutoPlay: true
+                Loop: true
+                Muted: true
+                Controls: true
                 PreviewImageID: true
                 VideoMP4ID: true
                 VideoOGVID: true
