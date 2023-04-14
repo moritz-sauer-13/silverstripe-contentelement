@@ -67,12 +67,7 @@ class ElementContentExtension extends DataExtension{
     ];
 
     private function imageFormatValues(){
-        return [
-            'TreeToTwo' => '3:2',
-            'OneToOne' => '1:1',
-            'ThreeToFour' => '3:4',
-            'SixteenToNine' => '16:9',
-        ];
+        return Config::inst()->get('MoritzSauer\ContentElement')["ImageFormats"];
     }
 
     /*Update CMS fields*/
