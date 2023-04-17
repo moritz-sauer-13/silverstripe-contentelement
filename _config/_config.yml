@@ -171,3 +171,8 @@ MoritzSauer\ContentElement:
         ImageWidth: 195
         # description to the layout-select in the cms
         FieldDescription: 'Nach der Auswahl zuerst speichern.'
+    ImageFormats:
+        TreeToTwo: '3:2'
+        OneToOne: '1:1'
+        ThreeToFour: '3.4'
+        SixteenToNine: '16:9'
