@@ -164,11 +164,13 @@ class ElementContentExtension extends DataExtension{
                     /*As long as no Layout is selected, all Fields will be removed*/
                     $fields->removeByName($field);
                     if (!$fields->dataFieldByName($field)) {
+                        $fields->removeByName($field);
                         $field = str_replace('ID', '', $field);
                         $fields->removeByName($field);
                     }
                 } else {
                     if (!$this->getConfigVariable('Layouts', $this->owner->ElementStyle)['FieldsVisible'][$field]) {
+                        $fields->removeByName($field);
                         $field = str_replace('ID', '', $field);
                         $fields->removeByName($field);
                     }
