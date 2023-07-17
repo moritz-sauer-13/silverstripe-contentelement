@@ -103,13 +103,14 @@ class ElementContentExtension extends DataExtension{
             CheckboxField::create('TextCenter', 'Zentriert?')
                 ->setDescription('Soll der Inhalt zentriert ausgegeben werden?'),
             HTMLEditorField::create('SecondContent', 'Zweiter Inhalt'),
-            TextField::create('ButtonCaption', 'Button Beschriftung')
-                ->setDescription('Wenn nicht gepflegt wird "Mehr erfahren" ausgegeben.'),
-            TreeDropdownField::create('LinkedPageID', 'Interne Verlinkung', SiteTree::class)
-                ->setDescription('Wird bevorzugt ausgegeben.'),
-            TextField::create('ExternalLink', 'Externe Verlinkung')
-                ->setDescription('Muss mit "https://" gepflegt werden.<br>Wird alternativ zur internen Verlinkung ausgegeben.'),
         ]);
+
+        $fields->insertAfter('Content', TextField::create('ButtonCaption', 'Button Beschriftung')
+            ->setDescription('Wenn nicht gepflegt wird "Mehr erfahren" ausgegeben.'));
+        $fields->insertAfter('Content', TreeDropdownField::create('LinkedPageID', 'Interne Verlinkung', SiteTree::class)
+            ->setDescription('Wird bevorzugt ausgegeben.'));
+        $fields->insertAfter('Content', TextField::create('ExternalLink', 'Externe Verlinkung')
+            ->setDescription('Muss mit "https://" gepflegt werden.<br>Wird alternativ zur internen Verlinkung ausgegeben.'));
 
         /*Define all fields for media settings*/
         if($this->getConfigVariable('Layouts', $this->owner->ElementStyle)['hasMedia']){
@@ -164,13 +165,11 @@ class ElementContentExtension extends DataExtension{
                     /*As long as no Layout is selected, all Fields will be removed*/
                     $fields->removeByName($field);
                     if (!$fields->dataFieldByName($field)) {
-                        $fields->removeByName($field);
                         $field = str_replace('ID', '', $field);
                         $fields->removeByName($field);
                     }
                 } else {
                     if (!$this->getConfigVariable('Layouts', $this->owner->ElementStyle)['FieldsVisible'][$field]) {
-                        $fields->removeByName($field);
                         $field = str_replace('ID', '', $field);
                         $fields->removeByName($field);
                     }
@@ -229,7 +228,7 @@ class ElementContentExtension extends DataExtension{
     public function HTML(){
         return $this->owner->Content;
     }
-    
+
     public function ButtonCaption(){
         if($this->owner->ButtonCaption != ''){
             return $this->owner->ButtonCaption;
