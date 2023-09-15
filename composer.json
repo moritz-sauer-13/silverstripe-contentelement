@@ -8,7 +8,7 @@
     }
   ],
   "require":{
-    "silverstripe/recipe-cms": "^4",
+    "silverstripe/recipe-cms": "^5",
     "axllent/silverstripe-scss": "^1.8",
     "dnadesign/silverstripe-elemental": "^4",
     "unclecheese/silverstripe-image-optionset": "^2.0",
