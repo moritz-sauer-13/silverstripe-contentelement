@@ -10,7 +10,7 @@
   "require":{
     "silverstripe/recipe-cms": "^5",
     "axllent/silverstripe-scss": "^1.8",
-    "dnadesign/silverstripe-elemental": "^4",
+    "dnadesign/silverstripe-elemental": "^5",
     "unclecheese/silverstripe-image-optionset": "^2.0",
     "bummzack/sortablefile": "^2"
   },
