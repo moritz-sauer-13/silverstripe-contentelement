@@ -19,7 +19,6 @@ use SilverStripe\Forms\TextField;
 use SilverStripe\Forms\TreeDropdownField;
 use SilverStripe\ORM\DataExtension;
 use SilverStripe\ORM\DataObject;
-use UncleCheese\Forms\ImageOptionsetField;
 
 class ElementContentExtension extends DataExtension{
 
@@ -82,10 +81,7 @@ class ElementContentExtension extends DataExtension{
         ]);
 
         /*Layout field*/
-        $layoutField = ImageOptionsetField::create('ElementStyle', 'Layout wählen')->setSource($this->getLayoutOptions());
-        $layoutField->setImageHeight($this->getConfigVariable('FieldSettings', 'ImageHeight'));
-        $layoutField->setImageWidth($this->getConfigVariable('FieldSettings', 'ImageWidth'));
-        $layoutField->setDescription($this->getConfigVariable('FieldSettings', 'FieldDescription'));
+        DropdownField::create('ElementStyle', 'Layout wählen')->setSource($this->getLayoutOptions());
 
         $fields->addFieldToTab('Root.Main', $layoutField, 'MenuTitle');
 
@@ -188,17 +184,9 @@ class ElementContentExtension extends DataExtension{
         foreach ($configVars as $layoutVar){
             $layoutID = $layoutVar['id'];
             if($this->getLayoutVariableFromConfig($layoutID)){
-                if(stristr($layoutVar['imgPath'], 'themes/') !== false){
-                    $img = $layoutVar['imgPath'];
-                } else {
-                    $img = ModuleLoader::getModule('moritz-sauer-13/contentelement')->getResource($layoutVar['imgPath']);
-                    if($img){
-                        $img->getURL();
-                    }
-                }
                 $options[$layoutID] = [
-                    'title' => $layoutVar['title'],
-                    'image' => ($img) ? Director::absoluteBaseURL() . 'resources/' . $img : '',
+                    'ID' => $layoutVar['id'],
+                    'image' => $layoutVar['title'],
                 ];
             }
         }
