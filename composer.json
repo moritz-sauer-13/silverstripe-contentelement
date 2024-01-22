@@ -12,7 +12,9 @@
     "axllent/silverstripe-scss": "^1.8",
     "dnadesign/silverstripe-elemental": "^5",
     "moritz-sauer-13/silverstripe-image-optionset": "^0.1.0",
-    "bummzack/sortablefile": "^2"
+    "bummzack/sortablefile": "^2",
+    "silverstripe/linkfield": "^3",
+    "maxime-rainville/anyfield": "^0.0.0"
   },
   "autoload": {
     "psr-4": {
@@ -21,9 +23,7 @@
   },
   "extra": {
     "expose": [
-      "client/css",
       "client/images",
-      "client/js",
       "client/scss"
     ]
   }
