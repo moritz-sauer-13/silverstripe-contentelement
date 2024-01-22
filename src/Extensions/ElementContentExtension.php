@@ -3,6 +3,7 @@
 namespace MoritzSauer\ContentElement;
 
 use Bummzack\SortableFile\Forms\SortableUploadField;
+use SilverStripe\AnyField\Form\AnyField;
 use SilverStripe\AssetAdmin\Forms\UploadField;
 use SilverStripe\Assets\File;
 use SilverStripe\Assets\Image;
@@ -17,6 +18,7 @@ use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\HTMLEditor\HTMLEditorField;
 use SilverStripe\Forms\TextField;
 use SilverStripe\Forms\TreeDropdownField;
+use SilverStripe\LinkField\Models\Link;
 use SilverStripe\ORM\DataExtension;
 use SilverStripe\ORM\DataObject;
 use UncleCheese\Forms\ImageOptionsetField;
@@ -29,8 +31,6 @@ class ElementContentExtension extends DataExtension{
         'ElementStyle' => 'Text',
         'Content' => 'HTMLText',
         'SecondContent' => 'HTMLText',
-        'ButtonCaption' => 'Text',
-        'ExternalLink' => 'Text',
         'AutoPlay' => 'Boolean(1)',
         'Loop' => 'Boolean(1)',
         'Muted' => 'Boolean(1)',
@@ -45,7 +45,7 @@ class ElementContentExtension extends DataExtension{
 
     /*HAS_ONE Definition*/
     private static $has_one = [
-        'LinkedPage' => SiteTree::class,
+        'LinkedPage' => Link::class,
         'Image' => Image::class,
         'Badge' => Image::class,
         'PreviewImage' => Image::class,
@@ -79,6 +79,7 @@ class ElementContentExtension extends DataExtension{
         $fields->removeByName([
             'HTML',
             'GalleryImages',
+            'LinkedPageID',
         ]);
 
         /*Layout field*/
@@ -87,7 +88,7 @@ class ElementContentExtension extends DataExtension{
         $layoutField->setImageWidth($this->getConfigVariable('FieldSettings', 'ImageWidth'));
         $layoutField->setDescription($this->getConfigVariable('FieldSettings', 'FieldDescription'));
 
-        $fields->addFieldToTab('Root.Main', $layoutField, 'MenuTitle');
+        $fields->addFieldToTab('Root.Main', $layoutField, 'Title');
 
         /*Get all fields*/
         $schema = DataObject::getSchema();
@@ -105,12 +106,7 @@ class ElementContentExtension extends DataExtension{
             HTMLEditorField::create('SecondContent', 'Zweiter Inhalt'),
         ]);
 
-        $fields->insertAfter('Content', TextField::create('ButtonCaption', 'Button Beschriftung')
-            ->setDescription('Wenn nicht gepflegt wird "Mehr erfahren" ausgegeben.'));
-        $fields->insertAfter('Content', TreeDropdownField::create('LinkedPageID', 'Interne Verlinkung', SiteTree::class)
-            ->setDescription('Wird bevorzugt ausgegeben.'));
-        $fields->insertAfter('Content', TextField::create('ExternalLink', 'Externe Verlinkung')
-            ->setDescription('Muss mit "https://" gepflegt werden.<br>Wird alternativ zur internen Verlinkung ausgegeben.'));
+        $fields->insertAfter('Content', AnyField::create('LinkedPage', 'Verlinkung'));
 
         /*Define all fields for media settings*/
         if($this->getConfigVariable('Layouts', $this->owner->ElementStyle)['hasMedia']){
@@ -198,7 +194,7 @@ class ElementContentExtension extends DataExtension{
                 }
                 $options[$layoutID] = [
                     'title' => $layoutVar['title'],
-                    'image' => ($img) ? Director::absoluteBaseURL() . 'resources/' . $img : '',
+                    'image' => ($img) ? Director::absoluteBaseURL() . '/resources/' . $img : '',
                 ];
             }
         }
