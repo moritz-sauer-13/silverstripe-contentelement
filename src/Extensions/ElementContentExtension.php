@@ -18,6 +18,7 @@ use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\HTMLEditor\HTMLEditorField;
 use SilverStripe\Forms\TextField;
 use SilverStripe\Forms\TreeDropdownField;
+use SilverStripe\LinkField\Form\LinkField;
 use SilverStripe\LinkField\Models\Link;
 use SilverStripe\ORM\DataExtension;
 use SilverStripe\ORM\DataObject;
@@ -106,7 +107,7 @@ class ElementContentExtension extends DataExtension{
             HTMLEditorField::create('SecondContent', 'Zweiter Inhalt'),
         ]);
 
-        $fields->insertAfter('Content', AnyField::create('LinkedPage', 'Verlinkung'));
+        $fields->insertAfter('Content', AnyField::create('LinkedPage', 'Verlinkung')->setBaseClass(Link::class));
 
         /*Define all fields for media settings*/
         if($this->getConfigVariable('Layouts', $this->owner->ElementStyle)['hasMedia']){
