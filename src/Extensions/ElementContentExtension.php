@@ -207,6 +207,9 @@ class ElementContentExtension extends DataExtension{
     }
 
     private function getConfigVariable($type, $field){
+        if(!$type || !$field){
+            return null;
+        }
         return Config::inst()->get('MoritzSauer\ContentElement')[$type][$field];
     }
 
