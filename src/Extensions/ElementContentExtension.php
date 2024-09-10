@@ -193,9 +193,11 @@ class ElementContentExtension extends DataExtension{
                         $img->getURL();
                     }
                 }
+                $project = new \SilverStripe\Core\Manifest\Module(BASE_PATH, BASE_PATH);
+                $resourcesDir = $project->getResourcesDir() ?: '_resources';
                 $options[$layoutID] = [
                     'title' => $layoutVar['title'],
-                    'image' => ($img) ? Director::absoluteBaseURL() . '/resources/' . $img : '',
+                    'image' => ($img) ? Director::absoluteBaseURL() . '/' . $resourcesDir . '/' . $img : '',
                 ];
             }
         }
