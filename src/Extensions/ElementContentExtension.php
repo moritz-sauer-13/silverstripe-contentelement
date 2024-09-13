@@ -3,7 +3,6 @@
 namespace MoritzSauer\ContentElement;
 
 use Bummzack\SortableFile\Forms\SortableUploadField;
-use SilverStripe\AnyField\Form\AnyField;
 use SilverStripe\AssetAdmin\Forms\UploadField;
 use SilverStripe\Assets\File;
 use SilverStripe\Assets\Image;
@@ -107,7 +106,7 @@ class ElementContentExtension extends DataExtension{
             HTMLEditorField::create('SecondContent', 'Zweiter Inhalt'),
         ]);
 
-        $fields->insertAfter('Content', AnyField::create('LinkedPage', 'Verlinkung')->setBaseClass(Link::class));
+        $fields->insertAfter('Content', LinkField::create('LinkedPage', 'Verlinkung'));
 
         /*Define all fields for media settings*/
         if($this->getConfigVariable('Layouts', $this->owner->ElementStyle)['hasMedia']){
