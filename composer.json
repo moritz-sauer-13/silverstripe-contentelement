@@ -13,7 +13,7 @@
     "dnadesign/silverstripe-elemental": "^5",
     "moritz-sauer-13/silverstripe-image-optionset": "^0.1.0",
     "bummzack/sortablefile": "^2",
-    "silverstripe/linkfield": "^3",
+    "silverstripe/linkfield": "^4",
     "maxime-rainville/anyfield": "^0.0.0"
   },
   "autoload": {
