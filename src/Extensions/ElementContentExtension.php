@@ -66,6 +66,10 @@ class ElementContentExtension extends DataExtension{
         ]
     ];
 
+    private static $owns = [
+        'LinkedPage'
+    ];
+
     private function imageFormatValues(){
         return Config::inst()->get('MoritzSauer\ContentElement')["ImageFormats"];
     }
