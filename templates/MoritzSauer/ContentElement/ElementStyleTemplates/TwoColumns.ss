@@ -1,5 +1,5 @@
-<div class="contentelement__twocolumns contentelement my-4 my-md-5">
-    <div class="container typography">
+<div class="contentelement__twocolumns contentelement">
+    <div class="container">
         <div class="row">
             <% if $ShowTitle %>
                 <div class="col-12 <% if $showContentCentered %> text-center <% end_if %>">

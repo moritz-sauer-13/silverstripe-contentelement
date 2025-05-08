@@ -1,5 +1,5 @@
-<div class="contentelement__image contentelement my-4 my-md-5">
-    <div class="container typography media__left">
+<div class="contentelement__image contentelement">
+    <div class="container media__left">
         <div class="row align-items-center">
             <% if $mediaTypeToDeliver %>
                 <div class="<% if $ShowTitle || $Content %> col-lg-6 <% else %> col-12 <% end_if %> mt-4 mt-md-5 mt-lg-0">

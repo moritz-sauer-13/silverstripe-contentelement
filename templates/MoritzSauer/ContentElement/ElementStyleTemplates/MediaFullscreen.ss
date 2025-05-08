@@ -2,8 +2,8 @@
     <% require themedCSS('client/scss/_gallery') %>
 <% end_if %>
 
-<div class="contentelement__mediafullscreen contentelement my-4 my-md-5">
-    <div class="container typography">
+<div class="contentelement__mediafullscreen contentelement">
+    <div class="container">
         <div class="row">
             <% if $ShowTitle || $Content %>
                 <div class="col-12 col-lg-10 offset-lg-1 col-xl-8 offset-xl-2 <% if $showContentCentered %> text-center <% end_if %>">

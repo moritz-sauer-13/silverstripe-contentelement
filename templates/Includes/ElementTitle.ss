@@ -1,4 +1,4 @@
-<% if $ShowTitle || $Content %>
+<% if $ShowTitle %>
     <div class="element__title--holder">
         <% if $showSubTitle && not $showSubTitleBelowTitle %>
             <span class="element__subtitle subtitle d-block">
@@ -6,7 +6,7 @@
             </span>
         <% end_if %>
         <h2 class="element__title">
-            $FrontendTitle.RAW
+            $FrontendTitle
         </h2>
         <% if $showSubTitle && $showSubTitleBelowTitle %>
             <span class="element__subtitle subtitle d-block">
