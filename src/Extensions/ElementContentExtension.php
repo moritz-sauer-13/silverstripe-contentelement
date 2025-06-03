@@ -205,10 +205,12 @@ class ElementContentExtension extends Extension
     }
 
     public function mediaTypeToDeliver() {
-        if ($this->owner->ImageID > 0) return 'Image';
-        if ($this->owner->GalleryImages()->count() > 0) return 'Gallery';
-        if ($this->owner->VideoMP4ID > 0 || $this->owner->VideoOGVID > 0 || $this->owner->VideoWEBMID > 0) return 'Video';
-        return null;
+        $type = null;
+        if ($this->owner->ImageID > 0) $type = 'Image';
+        if (!$type && $this->owner->GalleryImages()->count() > 0) $type = 'Gallery';
+        if (!$type && ($this->owner->VideoMP4ID > 0 || $this->owner->VideoOGVID > 0 || $this->owner->VideoWEBMID > 0)) $type = 'Video';
+        $this->owner->invokeWithExtensions('updateMediaTypeToDeliver', $type);
+        return $type;
     }
 
     public function sortedGalleryImages() {
