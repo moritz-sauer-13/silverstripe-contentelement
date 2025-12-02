@@ -8,16 +8,23 @@
     }
   ],
   "require": {
-    "silverstripe/recipe-cms": "^5",
-    "axllent/silverstripe-scss": "^1.8",
-    "dnadesign/silverstripe-elemental": "^5",
-    "moritz-sauer-13/silverstripe-image-optionset": "^0.1.0",
-    "bummzack/sortablefile": "^2",
-    "silverstripe/linkfield": "^4"
+    "silverstripe/recipe-cms": "^6",
+    "axllent/silverstripe-scss": "^2",
+    "dnadesign/silverstripe-elemental": "^6",
+    "moritz-sauer-13/silverstripe-image-optionset": "^1",
+    "bummzack/sortablefile": "^3",
+    "silverstripe/linkfield": "^5"
   },
   "autoload": {
     "psr-4": {
       "ContentElement\\": "src/"
+    }
+  },
+  "config": {
+    "allow-plugins": {
+      "composer/installers": true,
+      "silverstripe/vendor-plugin": true,
+      "silverstripe/recipe-plugin": true
     }
   }
 }

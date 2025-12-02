@@ -1,6 +1,6 @@
 <?php
 
-namespace MoritzSauer\ContentElement;
+namespace ContentElement\Extensions;
 
 use Bummzack\SortableFile\Forms\SortableUploadField;
 use SilverStripe\AssetAdmin\Forms\UploadField;
@@ -248,9 +248,5 @@ class ElementContentExtension extends Extension
             }
         }
         return $attributes;
-    }
-
-    public function Title() {
-        return str_replace("|", "&shy;", $this->owner->Title);
     }
 }
