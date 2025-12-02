@@ -1,30 +1,23 @@
 {
-  "name":"moritz-sauer-13/contentelement",
+  "name": "moritz-sauer-13/contentelement",
   "description": "Content Element",
   "authors": [
     {
-      "name":"Moritz Sauer",
+      "name": "Moritz Sauer",
       "email": "ms@tietge.com"
     }
   ],
-  "require":{
+  "require": {
     "silverstripe/recipe-cms": "^5",
     "axllent/silverstripe-scss": "^1.8",
     "dnadesign/silverstripe-elemental": "^5",
     "moritz-sauer-13/silverstripe-image-optionset": "^0.1.0",
     "bummzack/sortablefile": "^2",
-    "silverstripe/linkfield": "^4",
-    "maxime-rainville/anyfield": "^0.0.0"
+    "silverstripe/linkfield": "^4"
   },
   "autoload": {
     "psr-4": {
       "ContentElement\\": "src/"
     }
-  },
-  "extra": {
-    "expose": [
-      "client/images",
-      "client/scss"
-    ]
   }
 }

@@ -2,3 +2,4 @@
 
 For SilverStripe 4 use Tags 0.1.*
 For SilverStripe 5 use Tags 0.2.*
+For SilverStripe 6 use Tags 2
